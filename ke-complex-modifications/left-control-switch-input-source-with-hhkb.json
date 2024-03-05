@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "description": "Post f17 if left_control is pressed alone.",
+      "manipulators": [
+        {
+          "conditions": [{ "identifiers": [{ "vendor_id": 1452 }], "type": "device_unless" }],
+          "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "left_control" }],
+          "to_if_alone": [{ "key_code": "f17" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [{ "identifiers": [{ "vendor_id": 1452 }], "type": "device_if" }],
+          "from": { "key_code": "caps_lock" },
+          "to": [{ "key_code": "f17" }],
+          "type": "basic"
+        },
+        {
+          "conditions": [{ "identifiers": [{ "vendor_id": 1452 }], "type": "device_if" }],
+          "from": { "key_code": "caps_lock", "modifiers": { "mandatory": ["fn"] } },
+          "to": [{ "key_code": "caps_lock" }],
+          "type": "basic"
+        }
+      ]
+    }
+  ],
+  "title": "Left control switch input source with HHKB"
+}

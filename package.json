@@ -1,0 +1,21 @@
+{
+  "name": "@u3u/rime",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "link": "npx lnk '*' '!README.md' '!LICENSE' '!custom_phrase.txt' --cwd rime-ice",
+    "prepare": "pnpm run link -y",
+    "reload": "pnpm squirrel --reload",
+    "squirrel": "/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/Squirrel",
+    "sync": "pnpm squirrel --sync",
+    "update": "git submodule update --remote && pnpm i"
+  },
+  "devDependencies": {
+    "symlnk-cli": "^1.0.1"
+  },
+  "packageManager": "pnpm@8.12.0",
+  "engines": {
+    "node": ">=20.10.0",
+    "pnpm": ">=8.12.0"
+  }
+}
